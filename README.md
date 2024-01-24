@@ -9,7 +9,6 @@ List team members and/or short bio's here...
 * Hi, my name is Jaren and I'm excited to learn how to code!
 * Hi my name is Ben! I am excited to start this journey of creating a web application!
 * Hi, my name is Ephraim! Let's have fun developing this project!! :D
-* ...
 	
 ## 3. Technologies and Resources Used
 List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.

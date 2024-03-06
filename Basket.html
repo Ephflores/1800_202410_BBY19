@@ -18,9 +18,22 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <!-- Other libraries go here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Icons (Material Design)-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Link to styles of your own -->
-  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
@@ -60,6 +73,17 @@
         </div>
       </div>
     </template>
+
+    <!-- <footer id="footerPlaceholder"></footer> -->
+    <footer class="navbar justify-content-evenly fixed-bottom py-2" style="background-color: #3fdb7c;">
+      <div class="container">
+          <span class="material-icons">home</span>
+          <span class="material-icons">search</span>
+          <span class="material-icons">checkroom</span>
+          <span class="material-icons">shopping_basket</span>
+          <span class="material-icons">account_circle</span>
+      </div>
+  </footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

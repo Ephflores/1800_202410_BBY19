@@ -29,6 +29,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&display=swap"
+    rel="stylesheet">
 
   <!-- Google Icons (Material Design)-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -51,27 +53,53 @@
 
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Welcome to Clothesline!</h1>
-      <p class="col-md-8 fs-4">Donate clothes, save the planet.</p>
+      <h1 class="display-5 fw-bold text-center">Welcome to <span class="navbar-brand">Clothesline!</span></h1>
+      <p class="fs-4 text-center">Donate clothes, save the planet.</p>
 
       <!-- Add an onclick attribute to define click event handler -->
       <!-- <button onclick="window.location.href='login.html'" class="btn btn-primary btn-lg" type="button">Login/Signup</button> -->
     </div>
+    <div class="login">
+      <button type="button" class="btn btn-outline-success btn-lg" onclick="window.location.href='login.html'">
+        Login/Register
+      </button>
+    </div>
   </div>
-  <div class="login">
+
+
+  <div class="container mt-5">
+    <h1>Community Clothesline </h1>
+    <div id="posts-go-here" class="row row-cols-auto">
+    </div>
+  </div>
+
+  <div class="login mt-3">
     <button type="button" class="btn btn-outline-success btn-lg" onclick="window.location.href='login.html'">
-      Login
+      Login/Register
     </button>
   </div>
 
-  <footer id="footerPlaceholder"></footer>
-  <footer class="navbar justify-content-evenly fixed-bottom py-2" style="background-color: #3fdb7c;">
-    <div class="container">
-        <span class="material-icons">home</span>
-        <span class="material-icons">search</span>
-        <span class="material-icons">account_circle</span>
+  <!-- Templates for general use, not displayed -->
+  <!-- Has a "card-image", "card-title", and "card-description" -->
+  <template id="postCardTemplate">
+    <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
+      <img class="card-image card-img-top" src=" ..." alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-description">placeholder</p>
+      </div>
     </div>
-</footer>
+  </template>
+
+  <footer id="footerPlaceholder"></footer>
+  <footer class="navbar d-flex justify-content-center fixed-bottom align-items-center py-2" style="background-color: #3fdb7c;">
+    <!-- <div class="container justify-content-center"> -->
+      <!-- <span class="material-icons">home</span>
+      <span class="material-icons">search</span>
+      <span class="material-icons">account_circle</span> -->
+      About us  |  FAQs  |  Terms and Agreement
+    <!-- </div> -->
+  </footer>
   <!---------------------------------------------->
   <!-- Your own JavaScript functions go here    -->
   <!---------------------------------------------->
@@ -80,6 +108,7 @@
   <script src="./scripts/script.js"></script>
   <script src="./scripts/firebaseAPI_BBY19.js"></script>
   <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/index.js"></script>
 
   <script>
     logout();       //make sure user is logged out

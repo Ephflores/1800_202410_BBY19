@@ -1,0 +1,176 @@
+/******************/
+/* Search bar css */
+/******************/
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+
+.search {
+    --padding: 14px;
+
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: #3fdb7b77;
+    transition: box-shadow 0.25s;
+}
+
+.search:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+}
+
+.search-input {
+    font-size: 23px;
+    font-family: 'Lexend', sans-serif;
+    color: black;
+    margin-left: var(--padding);
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+.search-input::placeholder {
+    color: rgba(0, 0, 0, 0.25);
+
+}
+
+/*************************/
+/* Filter tags/labels css*/
+/*************************/
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --green: #49b293;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filters * {
+    display: inline-block;
+}
+
+.filters label {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.filters label:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --green: #49b293;
+}
+
+.posts {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.posts .post {
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.posts .post-title {
+    font-size: 1.3rem;
+}
+
+.posts .post-title:hover {
+    text-decoration: underline;
+}
+
+.posts figcaption {
+    padding: 1rem;
+}
+
+.posts .post-categories {
+    margin-bottom: 0.75rem;
+    font-size: .75rem;
+}
+
+.posts .post-categories * {
+    display: inline-block;
+}
+
+.posts .post-categories li {
+    margin-bottom: 0.2rem;
+}
+
+.posts .post-categories a {
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid;
+    line-height: normal;
+    background: all 0.1s;
+}
+
+.posts .post-categories a:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+/* clicking on the 'All' filter will populate all posts with a data-category attribute */
+[value="All"]:checked~.posts [data-category] {
+    display: block;
+}
+
+[value="womens"]:checked~.posts .post:not([data-category~="womens"]),
+[value="mens"]:checked~.posts .post:not([data-category~="mens"]),
+[value="kids"]:checked~.posts .post:not([data-category~="kids"]),
+[value="tops"]:checked~.posts .post:not([data-category~="tops"]),
+[value="bottoms"]:checked~.posts .post:not([data-category~="bottoms"]) {
+    display: none;
+}
+
+/* highlights the active filter category */
+:root {
+    --black: #1a1a1a;
+    --white: #fff;
+    --green: #49b293;
+}
+
+[value="All"]:checked~.filters [for="All"],
+[value="womens"]:checked~.filters [for="womens"],
+[value="mens"]:checked~.filters [for="mens"],
+[value="kids"]:checked~.filters [for="kids"],
+[value="tops"]:checked~.filters [for="tops"],
+[value="bottoms"]:checked~.filters [for="bottoms"] {
+    background: var(--green);
+    color: var(--white);
+}
+
+/*          MEDIA QUERIES            */
+@media screen and (max-width: 900px) {
+    .posts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -94,7 +94,21 @@
         <!-- <h1>Show My Posts <span id="name-goes-here"></span></h1> -->
 
         <div id="myposts-go-here" class="row row-cols-auto">
+            <div class="tab">
+                <button class="tablinks" onclick="displayposted(event, 'user.uid')">posted</button>
+                <button class="tablinks" onclick="displayclaimed(event, 'user.uid')">claimed</button>
+            </div>
         </div>
+    </div>
+
+    <div id="posted" class="tabcontent">
+        <h3>posted</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="claimed" class="tabcontent">
+        <h3>claimed</h3>
+        <p>Paris is the capital of France.</p>
     </div>
 
     <!-- Templates for general use, not displayed -->

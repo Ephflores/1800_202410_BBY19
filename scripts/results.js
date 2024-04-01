@@ -23,7 +23,7 @@ function displayCardsDynamically(collection) {
                     //i++;   //Optional: iterate variable to serve as unique ID
 
                 }
-                if ((!('claimed' in doc.data()) || !doc.data().claimed)
+                if ((!('claimed' in doc.data()) && !(doc.data().claimed)) //need to fix this
                     && doc.data().categories == searchParams.get("categories")) {
                     var itemname = doc.data().item_name;
                     var location = doc.data().location;
@@ -49,10 +49,15 @@ function displayCardsDynamically(collection) {
 displayCardsDynamically("clothes");  //input param is the name of the collection
 
 function claimFunc(clothid) {
-    firebase.auth().onAuthStateChanged(user =>{
+    firebase.auth().onAuthStateChanged(user => {
         const currentuser = db.collection("users").doc(user.uid);
         const addclothes = currentuser.update({
             myclaimed: firebase.firestore.FieldValue.arrayUnion(clothid)
-          });
+        });
+        const currentcloth = db.collection("clothes").doc(clothid);
+        const turnoff = currentcloth.update ({
+            claimed: true
+        });
+        displayCardsDynamically("clothes");
     });
 };

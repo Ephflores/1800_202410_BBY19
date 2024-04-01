@@ -163,3 +163,32 @@ function savePostIDforUser(postDocID) {
 
 // // Add event listener to the button
 // button.addEventListener('click', hangClick);
+
+function populateNavbarPic() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // go and get the curret user info from firestore
+            currentUser = db.collection("users").doc(user.uid);
+  
+            currentUser.get()
+                .then(userDoc => {
+                    let picUrl = userDoc.data().profilePic;
+                    if (picUrl != null) {
+                        console.log(picUrl);
+                        const navProfilePicture = document.getElementById('navProfilePicture');
+                        const imageUrl = picUrl;
+                        navProfilePicture.style.backgroundImage = `url(${imageUrl})`;
+                    }
+                    else
+                        console.log("picURL is null");
+                })
+  
+        } else {
+            console.log("no user is logged in")
+        }
+    }
+  
+    )
+  
+  }
+  populateNavbarPic();

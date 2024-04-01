@@ -79,3 +79,20 @@ body {
   background-position: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+.navbar-profile-picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the individual cards as needed */
+.card {
+  width: 45%;
+  /* Adjust the width as per your design, leaving a little space for margins */
+  margin: 2%;
+  /* Add margin between cards */
+}

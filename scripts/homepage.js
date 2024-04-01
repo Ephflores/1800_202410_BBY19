@@ -10,6 +10,16 @@ function insertNameFromFirestore() {
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
                 document.getElementById("name-goes-here").innerText = userName;
+                // Get profile pic
+                let picUrl = userDoc.data().profilePic;
+                if (picUrl != null) {
+                    console.log(picUrl);
+                    const navProfilePicture = document.getElementById('navProfilePicture');
+                    const imageUrl = picUrl;
+                    navProfilePicture.style.backgroundImage = `url(${imageUrl})`;
+                }
+                else
+                    console.log("picURL is null");
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in

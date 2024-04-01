@@ -17,7 +17,6 @@ function displayCardsDynamically(collection) {
                     newcard.querySelector('.card-location').innerHTML = location;
                     newcard.querySelector('.card-image').src = doc.data().image;;
                     newcard.querySelector('.btn').setAttribute("id", doc.id);
-                    console.log(doc.id);
                     //attach to gallery, Example: "items-go-here"
                     document.getElementById(collection + "-go-here").appendChild(newcard);
 
@@ -49,9 +48,11 @@ function displayCardsDynamically(collection) {
 
 displayCardsDynamically("clothes");  //input param is the name of the collection
 
-function claimfunc(clothid) {
+function claimFunc(clothid) {
     firebase.auth().onAuthStateChanged(user =>{
-        user.uid
-    })
-
+        const currentuser = db.collection("users").doc(user.uid);
+        const addclothes = currentuser.update({
+            myclaimed: firebase.firestore.FieldValue.arrayUnion(clothid)
+          });
+    });
 };

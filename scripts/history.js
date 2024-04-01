@@ -1,5 +1,6 @@
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("posts"); 
+    let cardTemplate = document.getElementById("posts");
+    //firebase.auth().onAuthStateChanged(user => 
 
     db.collection(collection).get()
         .then(allclothes => {

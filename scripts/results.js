@@ -6,7 +6,8 @@ function displayCardsDynamically(collection) {
             //var i = 1;  //Optional: if you want to have a unique ID for each item
             const searchParams = new URLSearchParams(window.location.search);
             allclothes.forEach(doc => { //iterate thru each doc
-                if (!searchParams.has("categories")) {
+                if (!searchParams.has("categories") &&
+                    (!('claimed' in doc.data()) || !(doc.data().claimed))) {
                     var itemname = doc.data().item_name;
                     var location = doc.data().location;
                     let newcard = cardTemplate.content.cloneNode(true);
@@ -23,7 +24,7 @@ function displayCardsDynamically(collection) {
                     //i++;   //Optional: iterate variable to serve as unique ID
 
                 }
-                if ((!('claimed' in doc.data()) && !(doc.data().claimed)) //need to fix this
+                if ((!('claimed' in doc.data()) || !(doc.data().claimed)) //need to fix this
                     && doc.data().categories == searchParams.get("categories")) {
                     var itemname = doc.data().item_name;
                     var location = doc.data().location;
@@ -55,7 +56,7 @@ function claimFunc(clothid) {
             myclaimed: firebase.firestore.FieldValue.arrayUnion(clothid)
         });
         const currentcloth = db.collection("clothes").doc(clothid);
-        const turnoff = currentcloth.update ({
+        const turnoff = currentcloth.update({
             claimed: true
         });
         displayCardsDynamically("clothes");

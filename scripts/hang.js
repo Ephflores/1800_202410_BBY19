@@ -37,6 +37,7 @@ function hangClick() {
                 categories: categories,
                 type: type,
                 location: location,
+                claimed: false,
                 last_updated: firebase.firestore.FieldValue
                     .serverTimestamp() //current system time
             }).then(doc => {

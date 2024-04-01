@@ -1,5 +1,6 @@
 function displayCardsDynamically(collection) {
-    let cardTemplate = document.getElementById("posts"); 
+    let cardTemplate = document.getElementById("posts");
+    //firebase.auth().onAuthStateChanged(user => 
 
     db.collection(collection).get()
         .then(allclothes => {
@@ -18,6 +19,7 @@ function displayCardsDynamically(collection) {
                 //newcard.querySelector('.card-text').innerHTML = details;
                 newcard.querySelector('.card-location').innerHTML = location;
                 newcard.querySelector('.card-image').src = doc.data().image;;
+                document.getElementById("originalDivId").setAttribute("id", "newDivId");
 
 
                 //attach to gallery, Example: "items-go-here"

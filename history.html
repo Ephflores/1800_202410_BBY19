@@ -42,17 +42,33 @@
 
 <body>
     <!-- HTML Body -->
-    
-        <!--cards-->
-        <div class="container">
-            <h1>posted</h1>
-            <!-- Here is the container for cards  -->
-            <div class="container">
-                <div id="clothes-go-here" class="row row-cols-auto">
-                </div>
+
+    <!-- nav -->
+    <nav id="navbarPlaceholder"></nav>
+
+
+
+    <div class="container mb-5">
+        <h1>My Clothesline </h1>
+        <!-- <h1>Show My Posts <span id="name-goes-here"></span></h1> -->
+
+        <div id="myposts-go-here" class="row row-cols-auto">
+            <div class="tab">
+                <button class="tablinks" onclick="displayposted(event, 'user.uid')">posted</button>
+                <button class="tablinks" onclick="displayclaimed(event, 'user.uid')">claimed</button>
             </div>
         </div>
+    </div>
 
+    <div id="posted" class="tabcontent">
+        <h3>posted</h3>
+        <div id="postedby"></div>
+    </div>
+
+    <div id="claimed" class="tabcontent">
+        <h3>claimed</h3>
+        <div id="claimedby"></div>
+    </div>
 
         <!--template-->
         <template id="posts">
@@ -70,6 +86,10 @@
                 </div>
             </div>
         </template>
+
+
+    <!-- footer -->
+    <footer id="footerPlaceholder"></footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

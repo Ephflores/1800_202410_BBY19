@@ -200,8 +200,10 @@ function populateInfo() {
                         //$("#mypicdiv").append("<img src='" + picUrl + "'>")
                         $("#mypic-goes-here").attr("src", picUrl);
                         const profilePicture = document.getElementById('profilePicture');
+                        const navProfilePicture = document.getElementById('navProfilePicture');
                         const imageUrl = picUrl;
                         profilePicture.style.backgroundImage = `url(${imageUrl})`;
+                        navProfilePicture.style.backgroundImage = `url(${imageUrl})`;
                     }
                     else
                         console.log("picURL is null");

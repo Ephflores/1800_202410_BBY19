@@ -4,7 +4,7 @@
 //------------------------------------------------
 function showPosts() {
     db.collection("clothes")
-        //.orderBy(...)       //optional ordering
+        .orderBy("last_updated", "desc")       //optional ordering
         .limit(15)           //optional limit
         .get()
         .then(snap => {

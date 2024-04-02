@@ -67,5 +67,6 @@ function claimFunc(clothid) {
             claimed: true
         });
         document.querySelector('#card' + clothid).setAttribute("class","vanish" )
+        alert("your item has been claimed")
     });
 };

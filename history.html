@@ -47,15 +47,14 @@
     <nav id="navbarPlaceholder"></nav>
 
 
-
     <div class="container mb-5">
         <h1>My Clothesline </h1>
         <!-- <h1>Show My Posts <span id="name-goes-here"></span></h1> -->
 
         <div id="myposts-go-here" class="row row-cols-auto">
             <div class="tab">
-                <button class="tablinks" onclick="displayposted(event, 'user.uid')">posted</button>
-                <button class="tablinks" onclick="displayclaimed(event, 'user.uid')">claimed</button>
+                <button class="tablinks" onclick="displayhistory('myposts')">posted</button>
+                <button class="tablinks" onclick="displayhistory(event, 'user.uid')">claimed</button>
             </div>
         </div>
     </div>
@@ -99,6 +98,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/firebaseAPI_BBY19.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/history.js"></script>
 </body>
 
 </html>

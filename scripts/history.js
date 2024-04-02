@@ -1,51 +1,63 @@
-function displayCardsDynamically(collection) {
+function displayhistory(history) {
     let cardTemplate = document.getElementById("posts");
-
-    db.collection(collection).get()
-        .then(allclothes => {
-            //var i = 1;  //Optional: if you want to have a unique ID for each item
-            const searchParams = new URLSearchParams(window.location.search);
-            allclothes.forEach(doc => { //iterate thru each doc
-                if (!searchParams.has("categories") &&
-                    (!('claimed' in doc.data()) || !(doc.data().claimed))) {
-                    var itemname = doc.data().item_name;
-                    var location = doc.data().location;
-                    let newcard = cardTemplate.content.cloneNode(true);
-                    //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
-                    //update title and text and image
-                    newcard.querySelector('.card-title').innerHTML = itemname;
-                    //newcard.querySelector('.card-text').innerHTML = details;
-                    newcard.querySelector('.card-location').innerHTML = location;
-                    newcard.querySelector('.card-image').src = doc.data().image;;
-                    newcard.querySelector('.btn').setAttribute("id", doc.id);
-                    //attach to gallery, Example: "items-go-here"
-                    document.getElementById(collection + "-go-here").appendChild(newcard);
-
-                    //i++;   //Optional: iterate variable to serve as unique ID
-
-                }
-                if ((!('claimed' in doc.data()) || !(doc.data().claimed)) //need to fix this
-                    && doc.data().categories == searchParams.get("categories")) {
-                    var itemname = doc.data().item_name;
-                    var location = doc.data().location;
-                    let newcard = cardTemplate.content.cloneNode(true);
-                    //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
-                    //update title and text and image
-                    newcard.querySelector('.card-title').innerHTML = itemname;
-                    //newcard.querySelector('.card-text').innerHTML = details;
-                    newcard.querySelector('.card-location').innerHTML = location;
-                    newcard.querySelector('.card-image').src = doc.data().image;;
-                    newcard.querySelector('.btn').setAttribute("id", doc.id);
-
-
-                    //attach to gallery, Example: "items-go-here"
-                    document.getElementById(collection + "-go-here").appendChild(newcard);
-
-                    //i++;   //Optional: iterate variable to serve as unique ID
-                }
+    console.log(history);
+    firebase.auth().onAuthStateChanged(user => {
+        if (history == 'myposts') {
+            var currentcol = db.collection("users").doc(user.uid);
+            currentcol.get().then((doc) => {
+                doc.data().myposts.forEach(data => {
+                    db.collection("clothes").doc(data).get()
+                        .then(clothid=> {
+                            var itemname = clothid.data().item_name;    
+                            var location = clothid.data().location;
+                            let newcard = cardTemplate.content.cloneNode(true);
+                            //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
+                            //update title and text and image
+                            newcard.querySelector('.card-title').innerHTML = itemname;
+                            //newcard.querySelector('.card-text').innerHTML = details;
+                            newcard.querySelector('.card-location').innerHTML = location;
+                            newcard.querySelector('.card-image').src = clothid.data().image;;
+                            newcard.querySelector('.btn').setAttribute("id", clothid.id);
+                            //attach to gallery, Example: "items-go-here"
+                            document.getElementById("myposts-go-here").appendChild(newcard);
+            
+                            //i++;   //Optional: iterate variable to serve as unique ID
+            
+                        })
+            
+                })
             })
-        })
+        }
+        else if (history == 'myclaimed') {
+            var currentcol = db.collection("users").doc(user.uid);
+            currentcol.get().then((doc) => {
+                doc.data().myposts.forEach(data => {
+                    db.collection("clothes").doc(data).get()
+                        .then(clothid=> {
+                            var itemname = clothid.data().item_name;    
+                            var location = clothid.data().location;
+                            let newcard = cardTemplate.content.cloneNode(true);
+                            //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
+                            //update title and text and image
+                            newcard.querySelector('.card-title').innerHTML = itemname;
+                            //newcard.querySelector('.card-text').innerHTML = details;
+                            newcard.querySelector('.card-location').innerHTML = location;
+                            newcard.querySelector('.card-image').src = clothid.data().image;;
+                            newcard.querySelector('.btn').setAttribute("id", clothid.id);
+                            //attach to gallery, Example: "items-go-here"
+                            document.getElementById("myposts-go-here").appendChild(newcard);
+            
+                            //i++;   //Optional: iterate variable to serve as unique ID
+            
+                        })
+            
+                })
+            })
+        }
+    });
+    
 }
+
 
 // function openCity(evt, cityName) {
 //     // Declare all variables

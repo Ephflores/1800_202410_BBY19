@@ -1,6 +1,5 @@
 function displayhistory(history) {
     let cardTemplate = document.getElementById("posts");
-    console.log(history);
     firebase.auth().onAuthStateChanged(user => {
         if (history == 'myposts') {
             var currentcol = db.collection("users").doc(user.uid);
@@ -28,7 +27,7 @@ function displayhistory(history) {
                 })
             })
         }
-        else {
+        if (history == 'myclaimed') {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
                 doc.data().myclaimed.forEach(data => {

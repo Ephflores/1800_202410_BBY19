@@ -56,8 +56,11 @@ displayCardsDynamically("clothes");  //input param is the name of the collection
 function claimFunc(clothid) {
     firebase.auth().onAuthStateChanged(user => {
         const currentuser = db.collection("users").doc(user.uid);
-        const addclothes = currentuser.update({
+        currentuser.update({
             myclaimed: firebase.firestore.FieldValue.arrayUnion(clothid)
+        });
+        currentuser.update({
+            claimed: firebase.firestore.FieldValue.increment(1)
         });
         const currentcloth = db.collection("clothes").doc(clothid);
         const turnoff = currentcloth.update({

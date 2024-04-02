@@ -4,10 +4,14 @@ function displayhistory(history) {
         if (history == 'myposts') {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
+                if (doc.data().myposts == null) {
+                    alert("your posts is empty")
+                    return
+                }
                 doc.data().myposts.forEach(data => {
                     db.collection("clothes").doc(data).get()
-                        .then(clothid=> {
-                            var itemname = clothid.data().item_name;    
+                        .then(clothid => {
+                            var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
@@ -19,21 +23,25 @@ function displayhistory(history) {
                             newcard.querySelector('.btn').setAttribute("id", clothid.id);
                             //attach to gallery, Example: "items-go-here"
                             document.getElementById("myposts-go-here").appendChild(newcard);
-            
+
                             //i++;   //Optional: iterate variable to serve as unique ID
-            
+
                         })
-            
+
                 })
             })
         }
         if (history == 'myclaimed') {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
+                if (doc.data().myclaimed == null) {
+                    alert("your claimed is empty")
+                    return
+                }
                 doc.data().myclaimed.forEach(data => {
                     db.collection("clothes").doc(data).get()
-                        .then(clothid=> {
-                            var itemname = clothid.data().item_name;    
+                        .then(clothid => {
+                            var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
@@ -45,16 +53,16 @@ function displayhistory(history) {
                             newcard.querySelector('.btn').setAttribute("id", clothid.id);
                             //attach to gallery, Example: "items-go-here"
                             document.getElementById("myposts-go-here").appendChild(newcard);
-            
+
                             //i++;   //Optional: iterate variable to serve as unique ID
-            
+
                         })
-            
+
                 })
             })
         }
     });
-    
+
 }
 
 

@@ -18,6 +18,9 @@ function displayCardsDynamically(collection) {
                     newcard.querySelector('.card-location').innerHTML = location;
                     newcard.querySelector('.card-image').src = doc.data().image;;
                     newcard.querySelector('.btn').setAttribute("id", doc.id);
+                    newcard.querySelector('.card').setAttribute("id", "card" + doc.id);
+
+
                     //attach to gallery, Example: "items-go-here"
                     document.getElementById(collection + "-go-here").appendChild(newcard);
 
@@ -36,6 +39,7 @@ function displayCardsDynamically(collection) {
                     newcard.querySelector('.card-location').innerHTML = location;
                     newcard.querySelector('.card-image').src = doc.data().image;;
                     newcard.querySelector('.btn').setAttribute("id", doc.id);
+                    newcard.querySelector('.card').setAttribute("id", "card" + doc.id);
 
 
                     //attach to gallery, Example: "items-go-here"
@@ -59,6 +63,6 @@ function claimFunc(clothid) {
         const turnoff = currentcloth.update({
             claimed: true
         });
-        displayCardsDynamically("clothes");
+        document.querySelector('#card' + clothid).setAttribute("class","vanish" )
     });
 };

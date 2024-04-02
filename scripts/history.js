@@ -28,10 +28,10 @@ function displayhistory(history) {
                 })
             })
         }
-        else if (history == 'myclaimed') {
+        else {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
-                doc.data().myposts.forEach(data => {
+                doc.data().myclaimed.forEach(data => {
                     db.collection("clothes").doc(data).get()
                         .then(clothid=> {
                             var itemname = clothid.data().item_name;    

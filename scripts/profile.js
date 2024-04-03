@@ -34,9 +34,14 @@ function insertNameFromFirestore() {
                 let userEmail = userDoc.data().email;
                 console.log(userEmail);
 
+                let donated = userDoc.data().donated;
+                let claimed = userDoc.data().claimed;
+
                 //$("#name-goes-here").text(userName); // jQuery
                 document.getElementById("name-goes-here").innerText = userName;
                 document.getElementById("email-goes-here").innerText = userEmail;
+                document.getElementById("donated-goes-here").innerText = donated;
+                document.getElementById("claimed-goes-here").innerText = claimed;
             })
         } else {
             console.log("No user is logged in."); // Log a message when no user is logged in

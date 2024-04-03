@@ -135,3 +135,17 @@ body {
 .vanish {
   display: none;
 }
+
+.counters span {
+  font-size: 44px;
+  font-weight: 700;
+  display: block;
+  color: rgb(54, 133, 54);
+  font-family: "Dosis", sans-serif;
+}
+
+.counters p {
+  padding: 0;
+  font-size: 15px;
+  color: #444444;
+}

@@ -44,10 +44,23 @@
   <nav id="navbarPlaceholder"></nav>
 
   <div class="p-5 mb-4 bg-light rounded-3">
-    <div class="container-fluid py-5">
+    <div class="container-fluid">
       <h1 class="display-5 fw-bold text-center">Welcome to <span class="navbar-brand">Clothesline!</span></h1>
       <p class="fs-4 text-center">Donate clothes, save the planet.</p>
-
+      <div class="row counters position-relative">
+        <div class="col-4 text-center">
+          <span id="activeUser-goes-here">0</span>
+          <p>Active User</p>
+        </div>
+        <div class="col-4 text-center">
+          <span id="totalDonated-goes-here">0</span>
+          <p>Donated Items</p>
+        </div>
+        <div class="col-4 text-center">
+          <span id="totalClaimed-goes-here">0</span>
+          <p>Claimed Items</p>
+        </div>
+      </div>
       <!-- Add an onclick attribute to define click event handler -->
       <!-- <button onclick="window.location.href='login.html'" class="btn btn-primary btn-lg" type="button">Login/Signup</button> -->
     </div>

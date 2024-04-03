@@ -19,6 +19,9 @@ function hangClick() {
         if (user) {
             // User is signed in.
             // Do something for the user here. 
+            db.collection("users").doc(user.uid).update({
+                donated: firebase.firestore.FieldValue.increment(1)
+            })
             var name = document.getElementById('item-name').value;
             var details = document.getElementById('item-details').value;
             var pickup = document.getElementById('pick-up').checked;
@@ -110,7 +113,7 @@ function savePostIDforUser(postDocID) {
             .then(() => {
                 console.log("5. Saved to user's document!");
                 alert("Post is complete!");
-                //window.location.href = "showposts.html";
+                window.location.href = "profile.html";
             })
             .catch((error) => {
                 console.error("Error writing document: ", error);

@@ -9,7 +9,7 @@ function insertNameFromFirestore() {
                 let userName = userDoc.data().name;
                 console.log(userName);
                 //$("#name-goes-here").text(userName); // jQuery
-                document.getElementById("name-goes-here").innerText = userName;
+                //document.getElementById("name-goes-here").innerText = userName;
                 // Get profile pic
                 let picUrl = userDoc.data().profilePic;
                 if (picUrl != null) {

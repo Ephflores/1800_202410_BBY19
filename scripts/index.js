@@ -20,7 +20,7 @@ function showPosts() {
         })
     db.collection("clothes")
         .orderBy("last_updated", "desc")       //optional ordering
-        .limit(15)           //optional limit
+        .limit(12)           //optional limit
         .get()
         .then(snap => {
             snap.forEach(doc => {

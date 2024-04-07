@@ -14,7 +14,7 @@ function listenFileSelect() {
 listenFileSelect();
 
 function hangClick() {
-    alert("SAVE POST is triggered");
+    Swal.fire("SAVE POST is triggered");
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
@@ -112,8 +112,13 @@ function savePostIDforUser(postDocID) {
         })
             .then(() => {
                 console.log("5. Saved to user's document!");
-                alert("Post is complete!");
-                window.location.href = "profile.html";
+                Swal.fire({
+                    title: "Item hanged to your clothesline!",
+                    text: "Go to profile",
+                    icon: "success"
+                }).then((result) => {
+                    window.location.href = "profile.html";
+                });
             })
             .catch((error) => {
                 console.error("Error writing document: ", error);
@@ -173,7 +178,7 @@ function populateNavbarPic() {
         if (user) {
             // go and get the curret user info from firestore
             currentUser = db.collection("users").doc(user.uid);
-  
+
             currentUser.get()
                 .then(userDoc => {
                     let picUrl = userDoc.data().profilePic;
@@ -186,13 +191,13 @@ function populateNavbarPic() {
                     else
                         console.log("picURL is null");
                 })
-  
+
         } else {
             console.log("no user is logged in")
         }
     }
-  
+
     )
-  
-  }
-  populateNavbarPic();
+
+}
+populateNavbarPic();

@@ -37,13 +37,14 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/index.css">
 
 </head>
 
 <body>
   <nav id="navbarPlaceholder"></nav>
 
-  <div class="p-5 mb-4 bg-light rounded-3">
+  <div class="banner p-5 mb-4 rounded-3">
     <div class="container-fluid">
       <h1 class="display-5 fw-bold text-center">Welcome to <span class="navbar-brand">Clothesline!</span></h1>
       <p class="fs-4 text-center">Donate clothes, save the planet.</p>
@@ -74,7 +75,7 @@
 
   <div class="container mt-5">
     <h1>Recently posted items</h1>
-    <div id="posts-go-here" class="row row-cols-auto">
+    <div id="posts-go-here" class="row row-cols-auto justify-content-center">
     </div>
   </div>
 
@@ -87,8 +88,8 @@
   <!-- Templates for general use, not displayed -->
   <!-- Has a "card-image", "card-title", and "card-description" -->
   <template id="postCardTemplate">
-    <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
-      <img class="card-image card-img-top" src=" ..." alt="...">
+    <div class="card py-2 mx-2" style="width: 10rem;">
+      <img class="card-image card-img-top" src=" ..." alt="..." style="height: 10rem;">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-description">placeholder</p>

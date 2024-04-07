@@ -1,25 +1,3 @@
-// function getNameFromAuth() {
-//     firebase.auth().onAuthStateChanged(user => {
-//         // Check if a user is signed in:
-//         if (user) {
-//             // Do something for the currently logged-in user here: 
-//             console.log(user.uid); //print the uid in the browser console
-//             console.log(user.displayName);  //print the user name in the browser console
-//             console.log(user.displayEmail);  //print the user email in the browser console
-//             userName = user.displayName;
-//             userEmail = user.displayEmail;
-
-//             //method #1:  insert with JS
-//             document.getElementById("name-goes-here").innerText = userName;
-//             document.getElementById("email-goes-here").innerText = userEmail;
-
-//         } else {
-//             // No user is signed in.
-//             console.log("No user is logged in");
-//         }
-//     });
-// }
-
 function insertNameFromFirestore() {
     // Check if the user is logged in:
     firebase.auth().onAuthStateChanged(user => {
@@ -93,6 +71,9 @@ function displayMyPostCard(doc) {
     newcard.querySelector('.card-title').innerHTML = title;
     newcard.querySelector('.card-image').src = image;
     newcard.querySelector('.card-description').innerHTML = desc;
+    if (doc.data().claimed) {
+        document.getElementById("claimed").innerText = "Claimed!";
+    }
     //append to the posts
     document.getElementById("myposts-go-here").append(newcard);
 }

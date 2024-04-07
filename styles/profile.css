@@ -1,9 +1,3 @@
-.card {
-    width: 100%;
-    height: 100%;
-    background-color: #efefef;
-}
-
 .name {
     font-size: 22px;
     font-weight: bold
@@ -19,15 +13,6 @@
     font-size: 12px;
     font-weight: 500;
     color: #444444
-}
-
-.btn1 {
-    height: 40px;
-    width: 150px;
-    border: none;
-    background-color: #000;
-    color: #aeaeae;
-    font-size: 15px
 }
 
 .text span {
@@ -52,4 +37,18 @@ hr .new1 {
 
 .date {
     background-color: #ccc
+}
+
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #e8f6e8;
+    /* Light green */
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
 }

@@ -60,10 +60,9 @@
                     <span class="number" id="claimed-goes-here">#</span><span class="follow"> Claimed</span>
                 </div>
 
-                <div class=" d-flex mt-2"> <button class="btn1 btn-dark" id="openModalBtn">Profile picture</button>
+                <div class=" d-flex mt-2"> <button class="btn btn-outline-success" id="openModalBtn">Profile
+                        picture</button>
                 </div>
-                <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Track Progress!</button> </div>
-                <div class=" d-flex mt-2"> <button class="btn1 btn-dark">Messages</button> </div>
 
                 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
                             class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
@@ -91,37 +90,26 @@
         </div>
     </div>
 
-    <div class="container mb-5">
+    <div class="container mb-5 pb-5">
         <h1>My Clothesline </h1>
         <!-- <h1>Show My Posts <span id="name-goes-here"></span></h1> -->
 
-        <div id="myposts-go-here" class="row row-cols-auto">
-            <div class="tab">
-                <button class="tablinks" onclick="displayposted(event, 'user.uid')">posted</button>
-                <button class="tablinks" onclick="displayclaimed(event, 'user.uid')">claimed</button>
-            </div>
+        <div id="myposts-go-here" class="row justify-content-center">
+
         </div>
-    </div>
-
-    <div id="posted" class="tabcontent">
-        <h3>posted</h3>
-        <p>London is the capital city of England.</p>
-    </div>
-
-    <div id="claimed" class="tabcontent">
-        <h3>claimed</h3>
-        <p>Paris is the capital of France.</p>
     </div>
 
     <!-- Templates for general use, not displayed -->
     <!-- Has a "card-image", "card-title", and "card-description" -->
     <template id="postCardTemplate">
-        <div class="card py-2 mx-2 bg-light" style="width: 10rem;">
-            <img class="card-image card-img-top" src=" ..." alt="...">
+        <div class="card py-2 mx-2" style="width: 13rem;">
+            <img class="card-image card-img-top" src=" ..." alt="..." style="height: 10rem">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-description">placeholder</p>
-                <br>
+                <p id="claimed">Available</p>
+            </div>
+            <div class="card-footer text-center">
                 <a class="btn btn-secondary card-href" id="remove">Remove</a>
             </div>
         </div>

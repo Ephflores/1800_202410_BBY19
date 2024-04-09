@@ -35,12 +35,13 @@ function displayCardsDynamically(collection) {
                     (!('claimed' in doc.data()) || !(doc.data().claimed))) {
                     var itemname = doc.data().item_name;
                     var location = doc.data().location;
+                    var details = doc.data().details;
                     let newcard = cardTemplate.content.cloneNode(true);
                     //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                     //update title and text and image
                     newcard.querySelector('.card-title').innerHTML = itemname;
-                    //newcard.querySelector('.card-text').innerHTML = details;
                     newcard.querySelector('.card-location').innerHTML = location;
+                    newcard.querySelector('.card-text').innerHTML = details;
                     newcard.querySelector('.card-image').src = doc.data().image;;
                     newcard.querySelector('.btn').setAttribute("id", doc.id);
                     newcard.querySelector('.card').setAttribute("id", "card" + doc.id);

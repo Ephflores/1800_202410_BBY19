@@ -37,6 +37,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/history.css">
 
 </head>
 
@@ -52,27 +53,18 @@
         <!-- <h1>Show My Posts <span id="name-goes-here"></span></h1> -->
 
         <div id="myposts-go-here" class="row row-cols-auto">
-            <div class="tab">
-                <button class="tablinks" onclick="displayhistory('myposts')">posted</button>
-                <button class="tablinks" onclick="displayhistory('myclaimed')">claimed</button>
+            <div class="container">
+                <a href="history.html?myposts"><button>myposted</button></a>
+                <a href="history.html?myclaimed"><button>myclaimed</button></a>
+                <div id="sendhere" class="row row-cols-auto"></div>
             </div>
         </div>
     </div>
 
-    <div id="posted" class="tabcontent">
-        <h3>posted</h3>
-        <div id="postedby"></div>
-    </div>
-
-    <div id="claimed" class="tabcontent">
-        <h3>claimed</h3>
-        <div id="claimedby"></div>
-    </div>
-
     <!--template-->
     <template id="posts">
-        <div class="card py-2 mx-2" style="width: 18rem">
-            <img class="card-image card-img-top" src=" ..." alt="..." />
+        <div class="card py-2 mx-2" style="width: 13rem">
+            <img class="card-image card-img-top" src=" ..." alt="..." style="height: 10rem" />
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <br />
@@ -81,7 +73,6 @@
                     Some quick example text to build on the card title and make up the
                     bulk of the card's content.
                 </p>
-                <a class="btn btn-primary card-href">Claim</a>
             </div>
         </div>
     </template>

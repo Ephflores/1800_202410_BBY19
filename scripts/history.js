@@ -23,10 +23,11 @@ function populateNavbarPic() {
 }
 populateNavbarPic();
 
-function displayhistory(history) {
+function displayhistory() {
     let cardTemplate = document.getElementById("posts");
+    const searchParams = new URLSearchParams(window.location.search);
     firebase.auth().onAuthStateChanged(user => {
-        if (history == 'myposts') {
+        if (searchParams.has("myposts")) {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
                 if (doc.data().myposts == null) {
@@ -45,9 +46,8 @@ function displayhistory(history) {
                             //newcard.querySelector('.card-text').innerHTML = details;
                             newcard.querySelector('.card-location').innerHTML = location;
                             newcard.querySelector('.card-image').src = clothid.data().image;;
-                            newcard.querySelector('.btn').setAttribute("id", clothid.id);
                             //attach to gallery, Example: "items-go-here"
-                            document.getElementById("myposts-go-here").appendChild(newcard);
+                            document.getElementById("sendhere").appendChild(newcard);
 
                             //i++;   //Optional: iterate variable to serve as unique ID
 
@@ -56,7 +56,7 @@ function displayhistory(history) {
                 })
             })
         }
-        if (history == 'myclaimed') {
+        if (searchParams.has("myclaimed")) {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
                 if (doc.data().myclaimed == null) {
@@ -75,9 +75,8 @@ function displayhistory(history) {
                             //newcard.querySelector('.card-text').innerHTML = details;
                             newcard.querySelector('.card-location').innerHTML = location;
                             newcard.querySelector('.card-image').src = clothid.data().image;;
-                            newcard.querySelector('.btn').setAttribute("id", clothid.id);
                             //attach to gallery, Example: "items-go-here"
-                            document.getElementById("myposts-go-here").appendChild(newcard);
+                            document.getElementById("sendhere").appendChild(newcard);
 
                             //i++;   //Optional: iterate variable to serve as unique ID
 
@@ -89,7 +88,7 @@ function displayhistory(history) {
     });
 
 }
-
+displayhistory();
 
 // function openCity(evt, cityName) {
 //     // Declare all variables

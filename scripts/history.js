@@ -31,7 +31,7 @@ function displayhistory() {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
                 if (doc.data().myposts == null) {
-                    alert("your posts is empty")
+                    Swal.fire("your posts is empty")
                     return
                 }
                 doc.data().myposts.forEach(data => {
@@ -39,11 +39,12 @@ function displayhistory() {
                         .then(clothid => {
                             var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
+                            var details = doc.data().details;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                             //update title and text and image
                             newcard.querySelector('.card-title').innerHTML = itemname;
-                            //newcard.querySelector('.card-text').innerHTML = details;
+                            newcard.querySelector('.card-text').innerHTML = details;
                             newcard.querySelector('.card-location').innerHTML = location;
                             newcard.querySelector('.card-image').src = clothid.data().image;;
                             //attach to gallery, Example: "items-go-here"
@@ -60,7 +61,7 @@ function displayhistory() {
             var currentcol = db.collection("users").doc(user.uid);
             currentcol.get().then((doc) => {
                 if (doc.data().myclaimed == null) {
-                    alert("your claimed is empty")
+                    Swal.fire("your claimed is empty")
                     return
                 }
                 doc.data().myclaimed.forEach(data => {
@@ -68,11 +69,12 @@ function displayhistory() {
                         .then(clothid => {
                             var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
+                            var details = doc.data().details;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                             //update title and text and image
                             newcard.querySelector('.card-title').innerHTML = itemname;
-                            //newcard.querySelector('.card-text').innerHTML = details;
+                            newcard.querySelector('.card-text').innerHTML = details;
                             newcard.querySelector('.card-location').innerHTML = location;
                             newcard.querySelector('.card-image').src = clothid.data().image;;
                             //attach to gallery, Example: "items-go-here"

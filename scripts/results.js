@@ -57,11 +57,12 @@ function displayCardsDynamically(collection) {
                     && doc.data().categories == searchParams.get("categories")) {
                     var itemname = doc.data().item_name;
                     var location = doc.data().location;
+                    var details = doc.data().details;
                     let newcard = cardTemplate.content.cloneNode(true);
                     //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                     //update title and text and image
                     newcard.querySelector('.card-title').innerHTML = itemname;
-                    //newcard.querySelector('.card-text').innerHTML = details;
+                    newcard.querySelector('.card-text').innerHTML = details;
                     newcard.querySelector('.card-location').innerHTML = location;
                     newcard.querySelector('.card-image').src = doc.data().image;;
                     newcard.querySelector('.btn').setAttribute("id", doc.id);
@@ -93,6 +94,6 @@ function claimFunc(clothid) {
             claimed: true
         });
         document.querySelector('#card' + clothid).setAttribute("class", "vanish")
-        alert("your item has been claimed")
+        Swal.fire("your item has been claimed")
     });
 };

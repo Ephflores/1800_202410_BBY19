@@ -39,7 +39,7 @@ function displayhistory() {
                         .then(clothid => {
                             var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
-                            var details = doc.data().details;
+                            var details = clothid.data().details;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                             //update title and text and image
@@ -69,7 +69,7 @@ function displayhistory() {
                         .then(clothid => {
                             var itemname = clothid.data().item_name;
                             var location = clothid.data().location;
-                            var details = doc.data().details;
+                            var details = clothid.data().details;
                             let newcard = cardTemplate.content.cloneNode(true);
                             //newcard.querySelector('a').href = "eachHike.html?docID=" + docID;
                             //update title and text and image

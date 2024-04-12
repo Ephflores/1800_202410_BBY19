@@ -134,10 +134,6 @@ function saveUserInfo() {
                 storageRef.getDownloadURL()
                     .then(function (url) { // Get "url" of the uploaded file
                         console.log("Got the download URL.");
-                        //get values from the from
-                        // userName = document.getElementById('nameInput').value;
-                        // userSchool = document.getElementById('schoolInput').value;
-                        // userCity = document.getElementById('cityInput').value;
 
                         //Asynch call to save the form fields into Firestore.
                         db.collection("users").doc(user.uid).update({
@@ -165,21 +161,9 @@ function populateInfo() {
 
             currentUser.get()
                 .then(userDoc => {
-                    // let userName = userDoc.data().name;
-                    // let userSchool = userDoc.data().school;
-                    // let userCity = userDoc.data().city;
+
                     let picUrl = userDoc.data().profilePic;
 
-                    // if (userName != null) {
-                    //     document.getElementById("nameInput").value = userName;
-                    // }
-                    // if (userSchool != null) {
-                    //     document.getElementById("schoolInput").value = userSchool;
-                    // }
-                    // if (userCity != null) {
-                    //     console.log(userCity)
-                    //     document.getElementById("cityInput").value = userCity;
-                    // }
                     if (picUrl != null) {
                         console.log(picUrl);
                         // use this line if "mypicdiv" is a "div"

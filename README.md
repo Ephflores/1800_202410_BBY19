@@ -40,6 +40,7 @@ What we'd like to build in the future:
 * Notifications
 * Social sharing
 * Anonymous donation
+* enlarge post with bigger picture and more indepth details of each clothing item
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -49,7 +50,6 @@ Content of the project folder:
 ├── .firebaserc              
 ├── .gitignore               # Git ignore file
 ├── 404.html                 # custom error page, when accessing a URL that does not exist
-├── eachCategory.html        # page when a category is selected
 ├── firebase.json            #
 ├── firestore.indexes.json   #
 ├── firestore.rules          #
@@ -80,7 +80,6 @@ It has the following subfolders and files:
     /hanger icon.png         # fonts.google.com/icons
 ├── scripts                  # Folder for scripts
     /authentication.js       #
-    /eachCategory.js         #
     /hang.js                 #
     /history.js              #
     /homepage.js             #
